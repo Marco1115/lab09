@@ -3,7 +3,7 @@ package it.unibo.mvc;
 import java.util.List;
 
 /**
- * Interface of IO controller
+ * Interface of IO controller.
  */
 public interface Controller {
 
