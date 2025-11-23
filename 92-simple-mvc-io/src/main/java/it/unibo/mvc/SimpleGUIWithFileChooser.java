@@ -21,7 +21,7 @@ import javax.swing.JTextField;
  */
 public final class SimpleGUIWithFileChooser {
 
-    private static final int PROPORTION = 5;
+    private static final int PROPORTION = 2;
 
     private final JFrame frame = new JFrame();
 
@@ -36,6 +36,7 @@ public final class SimpleGUIWithFileChooser {
         final JPanel browsePanel = new JPanel();
         browsePanel.setLayout(new BorderLayout());
         final JTextField fileName = new JTextField(controller.getCurrentFilePath());
+        fileName.setEditable(false);
         browsePanel.add(fileName, BorderLayout.CENTER);
         final JButton browseButton = new JButton("Browse");
         browsePanel.add(browseButton, BorderLayout.LINE_END);
@@ -61,6 +62,7 @@ public final class SimpleGUIWithFileChooser {
                 final var result = chooser.showSaveDialog(browseButton);
                 if (result == JFileChooser.APPROVE_OPTION) {
                     controller.setCurrentFile(chooser.getSelectedFile());
+                    fileName.setText(controller.getCurrentFilePath());
                 } else if (result != JOptionPane.CANCEL_OPTION) {
                     JOptionPane.showMessageDialog(browseButton, "Error");
                 }
