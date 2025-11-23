@@ -20,14 +20,12 @@ public final class SimpleController implements Controller {
 
     @Override
     public String getNextString() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNextString'");
+        return this.nextString;
     }
 
     @Override
     public List<String> getHistory() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHistory'");
+        return this.history;
     }
 
     @Override
