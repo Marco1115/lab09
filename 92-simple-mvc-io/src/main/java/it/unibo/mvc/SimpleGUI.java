@@ -47,6 +47,9 @@ public final class SimpleGUI {
                 }
             }
         });
+    }
+
+    private void display() {
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
@@ -61,6 +64,6 @@ public final class SimpleGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-        new SimpleGUI();
+        new SimpleGUI().display();
     }
 }
