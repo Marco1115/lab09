@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -42,6 +44,23 @@ public final class SimpleGUI {
         final JButton showHistoryButton = new JButton("Show History");
         buttonPanel.add(showHistoryButton);
         canvas.add(buttonPanel, BorderLayout.SOUTH);
+        // handlers
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent ignored) {
+                controller.setNextString(inputField.getText());
+                controller.printString();
+            }
+        });
+        showHistoryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent ignored) {
+                showHistory.setText(null);
+                for (final String s: controller.getHistory()) {
+                    showHistory.append(s + "\n");
+                }
+            }
+        });
         frame.setContentPane(canvas);
     }
 
