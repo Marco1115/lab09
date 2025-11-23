@@ -31,6 +31,8 @@ public interface Controller {
 
     /**
      * Prints the current string.
+     * 
+     * @throws IllegalStateException if no string is set
      */
     void printString();
 }
