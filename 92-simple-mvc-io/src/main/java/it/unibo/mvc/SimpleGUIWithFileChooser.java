@@ -1,6 +1,8 @@
 package it.unibo.mvc;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -18,6 +20,8 @@ import javax.swing.JTextField;
  * 
  */
 public final class SimpleGUIWithFileChooser {
+
+    private static final int PROPORTION = 5;
 
     private final JFrame frame = new JFrame();
 
@@ -62,6 +66,25 @@ public final class SimpleGUIWithFileChooser {
                 }
             }
         });
-    } 
+        frame.setContentPane(canvas);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
+    private void display() {
+        final Dimension screenDim = Toolkit.getDefaultToolkit().getScreenSize();
+        final int screenWidth = (int) screenDim.getWidth();
+        final int screenHeight = (int) screenDim.getHeight();
+        frame.setSize(screenWidth / PROPORTION, screenHeight / PROPORTION);
+        frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+    }
+
+    /**
+     * Starts the application with the SimpleGUIWithFileChooser interface.
+     * 
+     * @param args ignored
+     */
+    public static void main(final String... args) {
+        new SimpleGUIWithFileChooser(new Controller()).display();
+    }
 }
