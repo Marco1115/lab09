@@ -30,8 +30,11 @@ public final class SimpleController implements Controller {
 
     @Override
     public void printString() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printString'");
+        if (this.nextString == null) {
+            throw new IllegalStateException("No string is set");
+        }
+        System.out.println(this.nextString); //NOPMD: required by the exercise
+        history.addLast(this.nextString);
     }
 
 }
